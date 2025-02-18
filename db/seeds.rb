@@ -7,3 +7,22 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+100.times do
+  user = User.create!(
+    email: Faker::Internet.email,
+    password: 'password'
+  )
+
+  profile = user.build_profile(
+    nickname: Faker::Name.name,
+    course: rand(1..15),
+    area: rand(1..47),
+    gender: rand(0..2),
+    birthday: Faker::Date.birthday(min_age: 6, max_age: 120),
+    introduction: Faker::Lorem.paragraph
+  )
+  profile.save!
+end
+
+

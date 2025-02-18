@@ -2,7 +2,11 @@
 <ul>
   <% @users.each do |user| %>
     <% if user.profile.present? %>
-      <li><%= link_to user.profile.nickname, user.profile %></li>
+      <li>
+        <%= link_to user.profile.nickname, account_path(user) %>
+        <p>受講コース: <%= user.profile.course %></p>
+        <p>都道府県: <%= user.profile.area %></p>
+      </li>
     <% else  %>
       <li><%= user.email %></li>
     <% end %>

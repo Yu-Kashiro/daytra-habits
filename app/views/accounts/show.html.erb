@@ -29,3 +29,9 @@
   <strong>自己紹介:</strong>
   <%= @profile.introduction %>
 </p>
+
+<% if current_user.has_followed?(@user) %>
+  <%= link_to 'フォロー解除', account_unfollows_path(@user), data: { "turbo-method": :post } %>
+<% else %>
+  <%= link_to 'フォロー', account_follows_path(@user), data: { "turbo-method": :post } %>
+<% end %>

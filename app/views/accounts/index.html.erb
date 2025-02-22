@@ -1,0 +1,39 @@
+<h1>検索条件</h1>
+
+<%= form_with url: accounts_path, method: :get, local: true do |f| %>
+
+  <%= f.label :area, "エリア（都道府県）" %>
+  <%= f.number_field :area %>
+  <br>
+  <%= f.label :course, "受講コース" %>
+  <%= f.number_field :course %>
+  <br>
+  <%= f.submit :検索 %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>プロフィール一覧</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ニックネーム</th>
+      <th>エリア</th>
+      <th>受講コース</th>
+      <th>自己紹介</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+      <td><%= user.profile.nickname %></td>
+      <td><%= user.profile.area %></td>
+      <td><%= user.profile.course %></td>
+      <td><%= user.profile.introduction %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

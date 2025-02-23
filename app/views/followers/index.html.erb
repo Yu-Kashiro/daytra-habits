@@ -1,15 +1,4 @@
-<h1>検索条件</h1>
-
-<%= form_with url: accounts_path, method: :get, local: true do |f| %>
-
-  <%= f.label :area, "エリア（都道府県）" %>
-  <%= f.number_field :area %>
-  <br>
-  <%= f.label :course, "受講コース" %>
-  <%= f.number_field :course %>
-  <br>
-  <%= f.submit :検索 %>
-<% end %>
+<h1>フォロワー</h1>
 
 <table>
   <thead>
@@ -24,7 +13,7 @@
       <th>受講コース</th>
       <th>自己紹介</th>
     </tr>
-    <% @users.each do |user| %>
+    <% @followers.each do |user| %>
       <tr>
       <td><%= link_to user.profile.nickname, account_path(user) %></td>
       <td><%= user.profile.area %></td>

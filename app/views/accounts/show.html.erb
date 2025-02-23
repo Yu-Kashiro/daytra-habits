@@ -35,3 +35,6 @@
 <% else %>
   <%= link_to 'フォロー', account_follows_path(@user), data: { "turbo-method": :post } %>
 <% end %>
+
+<%= link_to 'フォロー中', account_followings_path(@user) %>
+<%= link_to 'フォロワー', account_followers_path(@user) %>

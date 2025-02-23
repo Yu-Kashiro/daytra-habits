@@ -7,7 +7,6 @@ class AccountsController < ApplicationController
     if params[:course].present?
       @profiles = Profile.where(course: params[:course])
     end
-
     if params[:area].present?
       @profiles = @profiles.where(area: params[:area])
     end

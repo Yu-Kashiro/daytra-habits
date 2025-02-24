@@ -1,4 +1,6 @@
-<h1>index page</h1>
+<h2><%= link_to '勉強の記録', study_records_path %></h2>
+
+<h2><%= link_to '検索する', accounts_path %></h2>
 <ul>
   <% @users.each do |user| %>
     <% if user.profile.present? %>
@@ -12,3 +14,4 @@
     <% end %>
   <% end %>
 </ul>
+

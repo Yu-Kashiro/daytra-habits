@@ -1,0 +1,26 @@
+<h1>学習の記録</h1>
+
+<p>現在のデイトラ継続日数は<%= @period %>日間です！
+（合計<%= @total_days %>日）
+</p>
+
+<% if current_user.study_records.exists?(study_date: Date.today) %>
+  今日の学習は記録済みです。お疲れ様でした！
+<% else %>
+  <%= form_with url: study_records_path, method: :post do %>
+  <%= submit_tag "今日の学習を記録する", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+<h1>記録カレンダー</h1>
+<%= month_calendar(events: @study_records, attribute: :study_date) do |date, record| %>
+  <div>
+    <strong><%= date.day %></strong>
+
+    <% if records.any? %>
+      <div>
+        📚
+      </div>
+    <% end %>
+  </div>
+<% end %>

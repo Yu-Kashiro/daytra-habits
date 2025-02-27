@@ -1,40 +1,46 @@
-<h1>プロフィール編集</h1>
+<div class="container">
+  <h3>プロフィール編集</h3>
 
-<%= form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f| %>
+  <div class="profile">
+    <%= form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f| %>
 
-  <div class="field">
-    <%= f.label :nickname, 'ニックネーム' %>
-    <%= f.text_field :nickname %>
+      <div class="field">
+        <%= f.label :nickname, 'ニックネーム' %>
+        <%= f.text_field :nickname, class: 'text' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :course, '受講コース' %>
+        <%= f.select :course, Profile.courses.map{|k, v|[I18n.t("enum.courses.#{k}"),k]}, {}, { class: 'text' } %>
+      </div>
+
+      <div class="field">
+        <%= f.label :area, 'エリア' %>
+        <%= f.select :area, Profile.areas.map{|k, v|[I18n.t("enum.areas.#{k}"),k]}, {}, { class: 'text' } %>
+      </div>
+
+      <div class="field">
+        <%= f.label :gender, '性別' %>
+        <%= f.select :gender, Profile.genders.map{|k, v|[I18n.t("enum.genders.#{k}"),k]}, {}, { class: 'text' } %>
+      </div>
+
+      <div class="field">
+        <%= f.label :birthday, '誕生日' %>
+        <br>
+          <div class="field date-select">
+            <%= f.date_select :birthday, { start_year: 1920, end_year: Time.now.year }, { class: 'date' } %>
+          </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :introduction, '自己紹介' %>
+        <%= f.text_area :introduction %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "プロフィール更新", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :course, '受講コース' %>
-    <%= f.select :course, [['Course 1', 1], ['Course 2', 2], ['Course 3', 3]] %>
-  </div>
-
-  <div class="field">
-    <%= f.label :area, 'エリア' %>
-    <%= f.select :area, (1..47).map { |n| [n, n] } %>
-  </div>
-
-  <div class="field">
-    <%= f.label :gender, '性別' %>
-    <%= f.select :gender, [['Male', 1], ['Female', 2], ['Other', 3]] %>
-  </div>
-
-  <div class="field">
-    <%= f.label :birthday, '誕生日' %>
-    <%= f.date_select :birthday %>
-  </div>
-
-  <div class="field">
-    <%= f.label :introduction, '自己紹介' %>
-    <%= f.text_area :introduction %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "プロフィール更新" %>
-  </div>
-<% end %>
-
-<%= link_to '戻る', profile_path %>
+</div>

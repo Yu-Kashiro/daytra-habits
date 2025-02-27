@@ -1,39 +1,39 @@
-<h1>検索条件</h1>
+<div class="container">
+  <h3>検索条件</h3>
 
-<%= form_with url: accounts_path, method: :get, local: true do |f| %>
+  <%= form_with url: accounts_path, method: :get, local: true do |f| %>
 
-  <%= f.label :area, "エリア（都道府県）" %>
-  <%= f.number_field :area %>
-  <br>
-  <%= f.label :course, "受講コース" %>
-  <%= f.number_field :course %>
-  <br>
-  <%= f.submit :検索 %>
-<% end %>
+    <div class="field">
+      <%= f.label :area, 'エリア' %>
+      <%= f.select :area, Profile.areas.map{|k, v|[I18n.t("enum.areas.#{k}"),k]}, { include_blank: true }, { class: 'text' } %>
+    </div>
+    <br>
+      <div class="field">
+        <%= f.label :course, '受講コース' %>
+        <%= f.select :course, Profile.courses.map{|k, v|[I18n.t("enum.courses.#{k}"),k]}, { include_blank: true }, { class: 'text' } %>
+      </div>
+    <br>
+    <%= f.submit '検索', class: 'btn btn-secondary' %>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>プロフィール一覧</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>ニックネーム</th>
-      <th>エリア</th>
-      <th>受講コース</th>
-      <th>自己紹介</th>
-    </tr>
-    <% @users.each do |user| %>
+  <h3>プロフィール一覧</h3>
+  <table>
+    <tbody>
       <tr>
-      <td><%= link_to user.profile.nickname, account_path(user) %></td>
-      <td><%= user.profile.area %></td>
-      <td><%= user.profile.course %></td>
-      <td><%= user.profile.introduction %></td>
+        <th>ニックネーム</th>
+        <th>エリア</th>
+        <th>受講コース</th>
+        <th>自己紹介</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% @users.each do |user| %>
+        <tr onclick="location.href='<%= account_path(user) %>'">
+          <td><%= user.display_name %></td>
+          <td><%= I18n.t "enum.areas.#{user.profile.area || 'not_entered' }" %></td>
+          <td><%= I18n.t "enum.courses.#{user.profile.course || 'not_entered' }" %></td>
+          <td><%= user.profile.introduction %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-
-
+</div>

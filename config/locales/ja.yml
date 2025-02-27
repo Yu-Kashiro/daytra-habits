@@ -1,0 +1,159 @@
+ja:
+  enum:
+    genders:
+      male: "男性"
+      female: "女性"
+      other: "その他"
+      not_entered: "未入力"
+    courses:
+      web_production: "Web制作"
+      web_design: "Webデザイン"
+      web_application_development: "Webアプリ開発"
+      shopify: "Shopify"
+      video_editing: "動画編集"
+      python: "Python"
+      drone: "ドローン"
+      writing: "ライティング"
+      java: "Java"
+      line_automation: "LINE構築"
+      not_entered: "未入力"
+    areas:
+      hokkaido: "北海道"
+      aomori: "青森県"
+      iwate: "岩手県"
+      miyagi: "宮城県"
+      akita: "秋田県"
+      yamagata: "山形県"
+      fukushima: "福島県"
+      ibaraki: "茨城県"
+      tochigi: "栃木県"
+      gunma: "群馬県"
+      saitama: "埼玉県"
+      chiba: "千葉県"
+      tokyo: "東京都"
+      kanagawa: "神奈川県"
+      niigata: "新潟県"
+      toyama: "富山県"
+      ishikawa: "石川県"
+      fukui: "福井県"
+      yamanashi: "山梨県"
+      nagano: "長野県"
+      gifu: "岐阜県"
+      shizuoka: "静岡県"
+      aichi: "愛知県"
+      mie: "三重県"
+      shiga: "滋賀県"
+      kyoto: "京都府"
+      osaka: "大阪府"
+      hyogo: "兵庫県"
+      nara: "奈良県"
+      wakayama: "和歌山県"
+      tottori: "鳥取県"
+      shimane: "島根県"
+      okayama: "岡山県"
+      hiroshima: "広島県"
+      yamaguchi: "山口県"
+      tokushima: "徳島県"
+      kagawa: "香川県"
+      ehime: "愛媛県"
+      kochi: "高知県"
+      fukuoka: "福岡県"
+      saga: "佐賀県"
+      nagasaki: "長崎県"
+      kumamoto: "熊本県"
+      oita: "大分県"
+      miyazaki: "宮崎県"
+      kagoshima: "鹿児島県"
+      okinawa: "沖縄県"
+      not_entered: "未入力"
+
+
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+      long: "%Y年%m月%d日(%a)"
+
+    day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
+    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+
+    month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%y/%m/%d %H:%M"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
+    am: "午前"
+    pm: "午後"
+
+  # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+  devise:
+    confirmations:
+      confirmed: "メールアドレスが正常に確認されました。"
+      send_instructions: "数分以内にメールアドレス確認の手順が記載されたメールが届きます。"
+      send_paranoid_instructions: "もしメールアドレスがデータベースに存在する場合、数分以内にメールアドレス確認の手順が記載されたメールが届きます。"
+    failure:
+      already_authenticated: "すでにサインインしています。"
+      inactive: "アカウントがまだ有効化されていません。"
+      invalid: "無効な%{authentication_keys}またはパスワードです。"
+      locked: "アカウントがロックされています。"
+      last_attempt: "アカウントがロックされる前にあと1回試行できます。"
+      not_found_in_database: "無効な%{authentication_keys}またはパスワードです。"
+      timeout: "セッションが期限切れです。続行するには再度サインインしてください。"
+      unauthenticated: "続行するにはサインインまたはサインアップが必要です。"
+      unconfirmed: "続行するにはメールアドレスを確認する必要があります。"
+    mailer:
+      confirmation_instructions:
+        subject: "確認手順"
+      reset_password_instructions:
+        subject: "パスワードリセット手順"
+      unlock_instructions:
+        subject: "ロック解除手順"
+      email_changed:
+        subject: "メールアドレスが変更されました"
+      password_change:
+        subject: "パスワードが変更されました"
+    omniauth_callbacks:
+      failure: "%{kind}からの認証に失敗しました: \"%{reason}\"。"
+      success: "%{kind}アカウントから正常に認証されました。"
+    passwords:
+      no_token: "パスワードリセットメールから来ないとこのページにアクセスできません。パスワードリセットメールから来た場合は、提供されたURLが完全であることを確認してください。"
+      send_instructions: "数分以内にパスワードリセット手順が記載されたメールが届きます。"
+      send_paranoid_instructions: "もしメールアドレスがデータベースに存在する場合、数分以内にパスワードリセット手順が記載されたメールが届きます。"
+      updated: "パスワードが正常に変更されました。サインインしました。"
+      updated_not_active: "パスワードが正常に変更されました。"
+    registrations:
+      destroyed: "さようなら！アカウントが正常にキャンセルされました。またお会いできることを願っています。"
+      signed_up: "登録が完了しました。"
+      signed_up_but_inactive: "正常にサインアップしましたが、アカウントがまだ有効化されていないためサインインできません。"
+      signed_up_but_locked: "正常にサインアップしましたが、アカウントがロックされているためサインインできません。"
+      signed_up_but_unconfirmed: "確認リンクが記載されたメッセージがメールアドレスに送信されました。リンクをフォローしてアカウントを有効化してください。"
+      update_needs_confirmation: "アカウントが正常に更新されましたが、新しいメールアドレスを確認する必要があります。メールを確認して、確認リンクをフォローしてください。"
+      updated: "アカウントが正常に更新されました。"
+      updated_but_not_signed_in: "アカウントが正常に更新されましたが、パスワードが変更されたため再度サインインする必要があります。"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "ログアウトしました。"
+    unlocks:
+      send_instructions: "数分以内にアカウントのロック解除手順が記載されたメールが届きます。"
+      send_paranoid_instructions: "もしアカウントが存在する場合、数分以内にロック解除手順が記載されたメールが届きます。"
+      unlocked: "アカウントが正常にロック解除されました。続行するにはサインインしてください。"
+  errors:
+    messages:
+      already_confirmed: "すでに確認されています。サインインを試みてください。"
+      confirmation_period_expired: "%{period}以内に確認する必要があります。新しいものをリクエストしてください。"
+      expired: "期限が切れています。新しいものをリクエストしてください。"
+      not_found: "見つかりません"
+      not_locked: "ロックされていません"
+      not_saved:
+        one: "1つのエラーが原因で%{resource}を保存できませんでした："
+        other: "%{count}つのエラーが原因で%{resource}を保存できませんでした："

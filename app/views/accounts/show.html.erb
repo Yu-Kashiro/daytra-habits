@@ -1,40 +1,22 @@
-<h1>プロフィール</h1>
+<div class="container">
+  <h3>プロフィール</h3>
 
-<p>
-  <strong>ニックネーム:</strong>
-  <%= @profile.nickname %>
-</p>
+  <div class="profile">
+    <p><strong>ニックネーム:</strong> <%= @profile.nickname || '未入力' %></p>
+    <p><strong>受講コース:</strong> <%= I18n.t "enum.courses.#{@profile.course || 'not_entered' }" %></p>
+    <p><strong>エリア:</strong> <%= I18n.t "enum.areas.#{@profile.area || 'not_entered' }" %></p>
+    <p><strong>性別:</strong> <%= I18n.t "enum.genders.#{@profile.gender || 'not_entered' }" %></p>
+    <p><strong>誕生日:</strong> <%= @profile.birthday || '未入力' %></p>
+    <p><strong>自己紹介:</strong> <%= @profile.introduction || '未入力' %></p>
+  </div>
 
-<p>
-  <strong>受講コース:</strong>
-  <%= @profile.course %>
-</p>
-
-<p>
-  <strong>エリア:</strong>
-  <%= @profile.area %>
-</p>
-
-<p>
-  <strong>性別:</strong>
-  <%= @profile.course %>
-</p>
-
-<p>
-  <strong>誕生日:</strong>
-  <%= @profile.birthday %>
-</p>
-
-<p>
-  <strong>自己紹介:</strong>
-  <%= @profile.introduction %>
-</p>
-
-<% if current_user.has_followed?(@user) %>
-  <%= link_to 'フォロー解除', account_unfollows_path(@user), data: { "turbo-method": :post } %>
-<% else %>
-  <%= link_to 'フォロー', account_follows_path(@user), data: { "turbo-method": :post } %>
-<% end %>
-
-<%= link_to 'フォロー中', account_followings_path(@user) %>
-<%= link_to 'フォロワー', account_followers_path(@user) %>
+  <div class="actions">
+    <% if current_user.has_followed?(@user) %>
+      <%= link_to 'フォロー解除', account_unfollows_path(@user), data: { "turbo-method": :post }, class: 'btn btn-primary' %>
+    <% else %>
+      <%= link_to 'フォロー', account_follows_path(@user), data: { "turbo-method": :post }, class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'フォロー中', account_followings_path(account_id: @user), class: 'btn btn-primary' %>
+    <%= link_to 'フォロワー', account_followers_path(account_id: @user), class: 'btn btn-primary' %>
+  </div>
+</div>

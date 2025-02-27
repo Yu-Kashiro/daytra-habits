@@ -13,10 +13,10 @@ class StudyRecordsController < ApplicationController
   def create
     today = Date.today
     if current_user.study_records.exists?(study_date: today)
-      flash[:alert] = "今日の学習はすでに記録されています。"
+      flash[:alert] = '今日の学習はすでに記録されています。'
     else
       StudyRecord.create(study_date: today, user_id: current_user.id)
-      flash[:notice] = "学習記録を追加しました！"
+      flash[:notice] = '学習記録を追加しました！'
     end
     redirect_to study_records_path
   end

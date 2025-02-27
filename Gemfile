@@ -20,8 +20,8 @@ gem 'jbuilder'
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
-gem 'pry-byebug'
 gem 'faker'
+gem 'pry-byebug'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[ windows jruby ]
@@ -56,8 +56,8 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'web-console'
   gem 'annotate'
+  gem 'web-console'
 end
 
 group :test do
@@ -68,4 +68,4 @@ end
 
 gem 'devise', '~> 4.9'
 
-gem "simple_calendar", "~> 3.1"
+gem 'simple_calendar', '~> 3.1'

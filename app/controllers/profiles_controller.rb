@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @profile = current_user.prepare_profile
   end
@@ -18,6 +20,13 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:nickname, :course, :area, :gender, :birthday, :introduction)
+    params.require(:profile).permit(
+      :nickname,
+      :course,
+      :area,
+      :gender,
+      :birthday,
+      :introduction
+      )
   end
 end

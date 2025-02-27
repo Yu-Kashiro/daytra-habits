@@ -28,4 +28,3 @@
 (1..25).each do |day|
   StudyRecord.create(user_id: 101, study_date: Date.new(2025, 2, day))
 end
-

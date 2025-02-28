@@ -1,26 +1,43 @@
-<h1>学習の記録</h1>
+<div class="container">
+  <div class="search-friends">
+    <h3>勉強仲間を探してみる</h3>
+    <div class="search-button">
+      <%= link_to "検索画面へ", accounts_path %>
+    </div>
+  </div>
 
-<p>現在のデイトラ継続日数は<%= @period %>日間です！
-（合計<%= @total_days %>日）
-</p>
+  <div class="study-record">
+    <h3>学習を記録しよう</h3>
+    <br>
+    <p>現在のデイトラ継続日数は<%= @period %>日間です！</p>
+    <p>（合計<%= @total_days %>日）</p>
+    <br>
 
-<% if current_user.study_records.exists?(study_date: Date.today) %>
-  今日の学習は記録済みです。お疲れ様でした！
-<% else %>
-  <%= form_with url: study_records_path, method: :post do %>
-  <%= submit_tag "今日の学習を記録する", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
+    <% if current_user.study_records.exists?(study_date: Date.today) %>
+      <p>今日の学習は記録済みです。お疲れ様でした！</p>
+    <% else %>
+      <%= form_with url: study_records_path, method: :post do %>
+      <%= submit_tag "5分間勉強したらタップ！", class: "btn btn-primary" %>
+      <% end %>
+    <% end %>
+  </div>
 
-<h1>記録カレンダー</h1>
-<%= month_calendar(events: @study_records, attribute: :study_date) do |date, record| %>
-  <div>
-    <strong><%= date.day %></strong>
-
-    <% if records.any? %>
+  <div class="simple-calendar">
+    <h3>記録カレンダー</h3>
+    <p>勉強した日は草が生えるよ！</p>
+    <br>
+    <%= month_calendar(events: @study_records, attribute: :study_date) do |date, record| %>
       <div>
-        📚
+        <strong><%= date.day %></strong>
+        <% if record.any? %>
+          <div>
+            ☘️
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
-<% end %>
+
+
+
+</div>

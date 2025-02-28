@@ -23,14 +23,29 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <h1><%= link_to "DT APP", root_path %></h1>
-    <h1></h1>
-    <% if user_signed_in? %>
-      <%= link_to "プロフィール", profile_path %>
-      <%= link_to "プロフィール編集", edit_profile_path %>
-      <%= link_to "ログアウト", destroy_user_session_path %>
+    <header class="header">
+      <div class="header_logos">
+        <% unless current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+          <%= link_to :back do %>
+            <%= image_tag 'back.svg', class: 'header_back' %>
+          <% end %>
+        <% end %>
+        <%= link_to 'DT app', root_path %>
+      </div>
+      <% if user_signed_in? %>
+        <div class="header_loginBtn">
+            <%= link_to "プロフィール", profile_path, class: "loginBtn" %>
+            <%= link_to "ログアウト", destroy_user_session_path, class: "loginBtn" %>
+        </div>
+      <% end %>
+    </header>
+    <% if flash.present? %>
+      <div class="flash">
+        <% flash.each do |key, value| %>
+          <%= value %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
     <%= yield %>
   </body>

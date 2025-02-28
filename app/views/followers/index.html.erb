@@ -1,24 +1,6 @@
 <div class="container">
   <h3>フォロワー</h3>
-  <table>
-    <tbody>
-      <tr>
-        <th>ニックネーム</th>
-        <th>エリア</th>
-        <th>受講コース</th>
-        <th>自己紹介</th>
-      </tr>
-      <% @followers.each do |user| %>
-        <tr onclick="location.href='<%= account_path(user) %>'">
-          <td><%= user.display_name %></td>
-          <td><%= I18n.t "enum.areas.#{user.profile.area || 'not_entered' }" %></td>
-          <td><%= I18n.t "enum.courses.#{user.profile.course || 'not_entered' }" %></td>
-          <td><%= user.profile.introduction %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+  <%= render 'commons/accounts_table', users: @followers %>
 </div>
 
 

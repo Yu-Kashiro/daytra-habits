@@ -13,7 +13,7 @@
 #  index_study_records_on_user_id  (user_id)
 #
 
-require "test_helper"
+require 'test_helper'
 
 class StudyRecordTest < ActiveSupport::TestCase
   # test "the truth" do

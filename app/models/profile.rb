@@ -84,5 +84,5 @@ class Profile < ApplicationRecord
     okinawa: 46
   }
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 end

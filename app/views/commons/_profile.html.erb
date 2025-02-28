@@ -1,0 +1,8 @@
+<div class="profile">
+  <p><strong>ニックネーム:</strong> <%= @profile.nickname || '未入力' %></p>
+  <p><strong>受講コース:</strong> <%= I18n.t "enum.courses.#{@profile.course || 'not_entered' }" %></p>
+  <p><strong>エリア:</strong> <%= I18n.t "enum.areas.#{@profile.area || 'not_entered' }" %></p>
+  <p><strong>性別:</strong> <%= I18n.t "enum.genders.#{@profile.gender || 'not_entered' }" %></p>
+  <p><strong>誕生日:</strong> <%= @profile.birthday || '未入力' %></p>
+  <p><strong>自己紹介:</strong> <%= @profile.introduction || '未入力' %></p>
+</div>

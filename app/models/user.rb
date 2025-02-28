@@ -13,8 +13,14 @@ class User < ApplicationRecord
   has_many :follower_relationships, foreign_key: :following_id, class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :follower_relationships, source: :follower
 
+  delegate :nickname, :course, :area, :gender, :birthday, :introduction, to: :profile, allow_nil: true
+
   def prepare_profile
     profile || build_profile
+  end
+
+  def display_name
+    profile&.nickname || self.email.split('@').first
   end
 
   def follow!(user)

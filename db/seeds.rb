@@ -8,24 +8,51 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# 100.times do
-#   user = User.create!(
-#     email: Faker::Internet.email,
-#     password: 'password'
-#   )
+# 作成人数
+number_of_times = 10
 
-#   profile = user.build_profile(
-#     nickname: Faker::Name.name,
-#     course: rand(1..15),
-#     area: rand(1..47),
-#     gender: rand(0..2),
-#     birthday: Faker::Date.birthday(min_age: 6, max_age: 120),
-#     introduction: Faker::Lorem.paragraph
-#   )
-#   profile.save!
-# end
+# ユーザーおよびプロフィールを作成
+number_of_times.times do
+  user = User.create!(
+    email: Faker::Internet.email,
+    password: 'password'
+  )
 
-(1..25).each do |day|
-  StudyRecord.create(user_id: 101, study_date: Date.new(2025, 2, day))
+  profile = user.build_profile(
+    nickname: Faker::JapaneseMedia::Naruto.character,
+    course: rand(0..9),
+    area: rand(0..46),
+    gender: rand(0..2),
+    birthday: Faker::Date.birthday(min_age: 6, max_age: 120),
+    introduction: Faker::Lorem.paragraph
+  )
+  profile.save!
+
+  # 学習記録を作成
+  # （開始日）
+  start_date = Date.new(2024, 10, 3)
+  # （終了日）
+  end_date = Date.yesterday
+
+  # 連続した学習記録を作成する場合
+  (start_date..end_date).each do |date|
+    StudyRecord.create(user_id: user.id, study_date: date)
+  end
+
+  # ランダムな日付で学習記録を作成する場合はこちら（上記のeach文をコメントアウト、このeach文をコメントイン）
+  # (start_date..end_date).each do |date|
+  #   if rand < 0.5
+  #     StudyRecord.create(user_id: user.id, study_date: date)
+  #   end
+  # end
+
 end
 
+# User全員が5人ずつフォローする
+users = User.all
+users.each do |user|
+  other_users = users.where.not(id: user.id).sample(5)
+  other_users.each do |other_user|
+    user.follow!(other_user)
+  end
+end

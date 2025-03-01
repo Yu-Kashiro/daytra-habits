@@ -11,14 +11,17 @@
 ### ① 学習記録
 - ボタンを押すと学習日が記録され、合計日数と継続日数が表示される。
 - 勉強した日はカレンダー上に緑色で表示される。
-- https://github.com/user-attachments/assets/721e0822-d9fc-4d4a-b23d-26eac7d85ca3
-- <video src="https://github.com/user-attachments/assets/721e0822-d9fc-4d4a-b23d-26eac7d85ca3" controls></video>
+- <video src="https://github.com/user-attachments/assets/82d637c0-4c79-46d1-89fe-a6846a214024" controls></video>
 
-### ② 検索機能 + フォロー機能
+### ② プロフィール編集
+- 通常のプロフィールに加え、デイトラ受講コースを選択可能
+
+- <video src="https://github.com/user-attachments/assets/f9d6eaa0-0d80-47d6-b981-e31de248a6fa" controls></video>
+
+### ③ 検索機能 + フォロー機能
 - デイトラ受講生の中から、受講コースおよび地域で検索可能。
 - 気になった受講生をフォローできる。
-- https://github.com/user-attachments/assets/1351b216-e2a3-41f7-8415-c900da4d08ae
-- <video src="https://github.com/user-attachments/assets/1351b216-e2a3-41f7-8415-c900da4d08ae" controls></video>
+- <video src="https://github.com/user-attachments/assets/401ab215-f8aa-4435-82a2-6160fadf012b" controls></video>
 
 ## 動作環境
 

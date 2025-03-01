@@ -42,24 +42,22 @@ psql (PostgreSQL) 14.15 (Homebrew)
    ```sh
    $ rails db:seed
    ```
-
-2. Userの情報は以下のとおりです。
+    Userの情報は以下のとおりです。
    - **email**: `test1@test.com`
    - **password**: `password`
-
    なお、emailアドレスは `test1@test.com`、`test2@test.com` 〜 `test10@test.com` の順番で作成されます。パスワードはすべて同じです。
 
-3. サーバーを起動します。
+2. サーバーを起動します。
 
    ```sh
    $ bin/rails server
    ```
 
-4. ブラウザで `http://localhost:3000/` に移動します。
+3. ブラウザで `http://localhost:3000/` に移動します。
 
-5. 「1.」で作成したUserの **email**・**password** でログインします。
+4. 「1.」で作成したUserの **email**・**password** でログインします。
 
-### ※備考
+#### ※備考
 - 追加するユーザー数、学習記録の日付は修正可能です。
 - 詳しくは `db/seeds.rb` をご確認ください。
 

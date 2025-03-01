@@ -11,10 +11,12 @@
 ### ① 学習記録
 - ボタンを押すと学習日が記録され、合計日数と継続日数が表示される。
 - 勉強した日はカレンダー上に緑色で表示される。
+- https://github.com/user-attachments/assets/721e0822-d9fc-4d4a-b23d-26eac7d85ca3
 
 ### ② 検索機能 + フォロー機能
 - デイトラ受講生の中から、受講コースおよび地域で検索可能。
 - 気になった受講生をフォローできる。
+https://github.com/user-attachments/assets/1351b216-e2a3-41f7-8415-c900da4d08ae
 
 ## 動作環境
 

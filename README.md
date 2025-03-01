@@ -18,6 +18,7 @@
 - デイトラ受講生の中から、受講コースおよび地域で検索可能。
 - 気になった受講生をフォローできる。
 - https://github.com/user-attachments/assets/1351b216-e2a3-41f7-8415-c900da4d08ae
+- <video src="https://github.com/user-attachments/assets/1351b216-e2a3-41f7-8415-c900da4d08ae" controls></video>
 
 ## 動作環境
 

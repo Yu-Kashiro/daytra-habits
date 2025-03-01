@@ -37,32 +37,37 @@ psql (PostgreSQL) 14.15 (Homebrew)
 
 ## 動作確認について
 
-`http://localhost:3000/users/sign_up`に移動し、サインアップしてください。
-もしくは、以下の通り実際のユーザー環境を再現してください。
+- 新しいユーザーとしてサインアップする場合
+   1. サーバーを起動します。
+         ```sh
+         $ bin/rails server
+         ```
+   2.`http://localhost:3000/users/sign_up`に移動し、サインアップしてください。
 
-1. 以下のコマンドを実行してください。10人分のUserデータが追加されます。
-
-   ```sh
-   $ rails db:seed
-   ```
-    Userの情報は以下のとおりです。
-   - **email**: `test1@test.com`
-   - **password**: `password`
-   なお、emailアドレスは `test1@test.com`、`test2@test.com` 〜 `test10@test.com` の順番で作成されます。パスワードはすべて同じです。
-
-2. サーバーを起動します。
-
-   ```sh
-   $ bin/rails server
-   ```
-
-3. ブラウザで `http://localhost:3000/` に移動します。
-
-4. 「1.」で作成したUserの **email**・**password** でログインします。
-
-#### ※備考
-- 追加するユーザー数、学習記録の日付は修正可能です。
-- 詳しくは `db/seeds.rb` をご確認ください。
+- 既にアプリを使用している既存のユーザーとしてログインする場合
+   1. 以下のコマンドを実行してください。10人分のUserデータが追加されます。
+   
+      ```sh
+      $ rails db:seed
+      ```
+       Userの情報は以下のとおりです。
+      - **email**: `test1@test.com`
+      - **password**: `password`
+      なお、emailアドレスは `test1@test.com`、`test2@test.com` 〜 `test10@test.com` の順番で作成されます。パスワードはすべて同じです。
+   
+   2. サーバーを起動します。
+   
+      ```sh
+      $ bin/rails server
+      ```
+   
+   3. ブラウザで `http://localhost:3000/` に移動します。
+   
+   4. 「1.」で作成したUserの **email**・**password** でログインします。
+   
+   #### ※備考
+   - 追加するユーザー数、学習記録の日付は修正可能です。
+   - 詳しくは `db/seeds.rb` をご確認ください。
 
 ## 実装・修正予定の機能
 

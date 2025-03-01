@@ -14,7 +14,7 @@ number_of_times = 10
 # ユーザーおよびプロフィールを作成
 number_of_times.times do
   user = User.create!(
-    email: Faker::Internet.email,
+    email: "test#{User.count + 1}@test.com",
     password: 'password'
   )
 

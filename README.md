@@ -1,24 +1,66 @@
-# README
+# Readme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## はじめに
+このアプリは、自分自身がプログラミング学習を継続するうえで有益だったと感じたことを、アプリの機能として落とし込んだものです。具体的には、以下の2つの機能を搭載しています。
 
-Things you may want to cover:
+- **学習記録**（5分間勉強したら、ボタンを押して記録する。）
+- **デイトラ受講生をフォローできる機能**（コース・地域で受講生を絞り込むことが可能）
 
-* Ruby version
+## アプリ概要
 
-* System dependencies
+### ① 学習記録
+- ボタンを押すと学習日が記録され、合計日数と継続日数が表示される。
+- 勉強した日はカレンダー上に緑色で表示される。
 
-* Configuration
+### ② 検索機能 + フォロー機能
+- デイトラ受講生の中から、受講コースおよび地域で検索可能。
+- 気になった受講生をフォローできる。
 
-* Database creation
+## 動作環境
 
-* Database initialization
+```
+macOS Sequoia 15.3.1
+ruby 3.4.2
+Rails 8.0.1
+node v14.15.0
+Yarn 1.22.22
+Bundler version 2.6.2
+psql (PostgreSQL) 14.15 (Homebrew)
+```
 
-* How to run the test suite
+## 動作確認について
 
-* Services (job queues, cache servers, search engines, etc.)
+1. 以下のコマンドを実行してください。10人分のUserデータが追加されます。
 
-* Deployment instructions
+   ```sh
+   $ rails db:seed
+   ```
 
-* ...
+2. Userの情報は以下のとおりです。
+   - **email**: `test1@test.com`
+   - **password**: `password`
+
+   なお、emailアドレスは `test1@test.com`、`test2@test.com` 〜 `test10@test.com` の順番で作成されます。パスワードはすべて同じです。
+
+3. サーバーを起動します。
+
+   ```sh
+   $ bin/rails server
+   ```
+
+4. ブラウザで `http://localhost:3000/` に移動します。
+
+5. 「1.」で作成したUserの **email**・**password** でログインします。
+
+### ※備考
+- 追加するユーザー数、学習記録の日付は修正可能です。
+- 詳しくは `db/seeds.rb` をご確認ください。
+
+## 実装・修正予定の機能
+
+- [ ] ツイート機能の追加
+- [ ] プロフィールのアバター表示追加
+- [ ] カレンダーの一部英語表示の修正
+- [ ] プロフィール検索時、検索条件が残るように修正
+- [ ] 生年月日の選択肢の修正（現在は2月31日などが入力可能）
+- [ ] **Haml ファイル化**
